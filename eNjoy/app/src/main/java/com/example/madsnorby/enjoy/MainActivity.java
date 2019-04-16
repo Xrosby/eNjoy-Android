@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import shopping.Webshop;
+
 public class MainActivity extends AppCompatActivity {
 
     private TextView mTextMessage;
@@ -33,6 +35,9 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        Webshop webshop = new Webshop();
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
