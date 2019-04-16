@@ -3,6 +3,7 @@ package com.example.madsnorby.enjoy;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -30,14 +31,9 @@ public class ShoppingBasketActivity extends AppCompatActivity {
         this.initListeners();
         this.initShoppingCart();
         this.setTotalPrice();
+        this.initRecyclerView();
 
-        CartItemAdapter cartItemAdapter = new CartItemAdapter(this, this.shoppingCart.getItems());
-        cartItemRecyclerView = findViewById(R.id.cartItemRecyclerView);
 
-        Toast.makeText(this, this.shoppingCart.getItems().toString(), Toast.LENGTH_LONG).show();
-
-        cartItemRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        cartItemRecyclerView.setAdapter(cartItemAdapter);
 
     }
 
@@ -55,6 +51,18 @@ public class ShoppingBasketActivity extends AppCompatActivity {
 
     }
 
+    private void initRecyclerView() {
+        CartItemAdapter cartItemAdapter = new CartItemAdapter(this, this.shoppingCart.getItems());
+        cartItemRecyclerView = findViewById(R.id.cartItemRecyclerView);
+        cartItemRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        cartItemRecyclerView.setAdapter(cartItemAdapter);
+        addItemDecoration();
+    }
+
+    private void addItemDecoration() {
+        this.cartItemRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        this.cartItemRecyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
+    }
 
     private void setTotalPrice() {
         TextView totalPriceTextView = this.findViewById(R.id.totalPrice);
