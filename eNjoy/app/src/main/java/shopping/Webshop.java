@@ -12,12 +12,22 @@ public class Webshop {
     private HashMap<Integer, ShoppingCart> shoppingCarts;
     private HashMap<Integer, Customer> customers;
     private Catalog catalog;
+    private static Webshop instance;
 
-    public Webshop() {
+    private Webshop() {
         this.initCatalog();
         this.initPlaceholderCart();
         this.initPlaceholderCustomer();
     }
+
+    public static Webshop getInstance() {
+        if(instance == null) {
+            instance = new Webshop();
+        }
+        return instance;
+    }
+
+
 
     public void addItemToBasket(String sessionID, int productID) {
         ProductSpecification specification = this.catalog.findProductSpecification(productID);
