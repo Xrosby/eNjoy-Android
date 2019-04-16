@@ -16,9 +16,6 @@ public class Catalog {
         return this.products.get(productID);
     }
 
-    public Collection<ProductSpecification> getAllSpecifications() {
-        return this.products.values();
-    }
 
     private void initPlaceholderProducts() {
         this.products = new HashMap<>();

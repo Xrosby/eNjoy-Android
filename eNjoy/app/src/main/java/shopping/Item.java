@@ -17,7 +17,7 @@ public class Item {
     }
 
     public double getPrice() {
-        return this.productSpecification.getPrice();
+        return productSpecification.getPrice() * amount;
     }
 
     public void addAmount(int amountIncrease) {

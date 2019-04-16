@@ -1,6 +1,8 @@
 package shopping;
 
+import android.util.Log;
 
+import java.util.HashMap;
 import java.util.HashMap;
 
 import customer.Customer;
@@ -12,6 +14,8 @@ public class Webshop {
     private HashMap<Integer, ShoppingCart> shoppingCarts;
     private HashMap<Integer, Customer> customers;
     private Catalog catalog;
+
+
     private static Webshop instance;
 
     private Webshop() {
@@ -28,16 +32,27 @@ public class Webshop {
     }
 
 
+    public ShoppingCart getShoppingCart(int customerId) {
+        return this.shoppingCarts.get(customerId);
+    }
 
-    public void addItemToBasket(String sessionID, int productID) {
+
+    public void addItemToBasket(int customerID, int productID) {
+        if(shoppingCarts.get(customerID) == null) {
+            shoppingCarts.put(customerID, new ShoppingCart());
+        }
+        Log.d("CatalogActivity", "addItemToBasket i Webshop");
+
         ProductSpecification specification = this.catalog.findProductSpecification(productID);
-        Item newItem = new Item(specification, 1);
-        this.shoppingCarts.get(1).addProduct(newItem);
-        System.out.println(newItem.getProductSpecification().getName() + "  :  " + newItem.getAmount() + "  :  " + newItem.getPrice());
+
+        Log.d("CatalogActivity", this.catalog.findProductSpecification(productID).getName() + " er blevet fundet i kataloget");
+
+        this.shoppingCarts.get(customerID).addProduct(specification);
+
     }
 
     public void createOrder(int customerID) {
-        //TODO: ?
+        //TODO: Use the Customers @CustomerID's shoppingcart and initiate an order with the items
     }
 
     public Customer findCustomer(int customerID) {

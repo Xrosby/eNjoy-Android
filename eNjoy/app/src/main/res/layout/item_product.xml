@@ -1,28 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="398dp"
+        android:layout_height="96dp"
+        android:orientation="horizontal"
+        style="@style/productItem"
+        tools:layout_editor_absoluteX="-7dp"
+        tools:layout_editor_absoluteY="0dp">
 
         <TextView
-            android:layout_width="match_parent"
+            android:id="@+id/productName"
+            style="@style/ProductHeader"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/productName"/>
-        
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/productDescription"/>
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="14dp"
+            android:text="ExampleTitle" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/productPrice"/>
+            android:id="@+id/productDescription"
+            android:layout_width="191dp"
+            android:layout_height="45dp"
+            android:layout_alignStart="@+id/productName"
+            android:layout_below="@+id/productName"
+            android:text="This is an example description" />
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/productPrice"
+            android:layout_width="63dp"
+            android:layout_height="41dp"
+            android:layout_alignStart="@+id/productName"
+            android:layout_below="@+id/productDescription"
+            android:text="1000 kr" />
+
+        <Button
+            android:id="@+id/addToCart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="48dp"
+            android:text="Add to basket" />
+
+    </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

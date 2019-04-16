@@ -46,6 +46,7 @@ public class Order {
         return -1; //TODO: Should calculate and return the VAT
     }
 
+
     public double calculateTotalPrice() {
         return -1; //TODO: Should calculate the total price of each items price * amount in the orderItems list, and return it
     }

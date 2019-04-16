@@ -5,11 +5,15 @@
     android:orientation="vertical">
 
     <android.support.v7.widget.RecyclerView
+        android:id="@+id/productRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/productListView"
-        />
+        android:layout_height="477dp" />
 
+    <Button
+        android:id="@+id/btnShoppingCart"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Shopping Cart" />
 
 
 </LinearLayout>
