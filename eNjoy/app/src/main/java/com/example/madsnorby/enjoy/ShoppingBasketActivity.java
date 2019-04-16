@@ -33,10 +33,7 @@ public class ShoppingBasketActivity extends AppCompatActivity {
         this.setTotalPrice();
         this.initRecyclerView();
 
-
-
     }
-
 
     private void initListeners() {
 

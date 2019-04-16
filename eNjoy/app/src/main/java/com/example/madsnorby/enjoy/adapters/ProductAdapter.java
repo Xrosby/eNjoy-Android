@@ -1,6 +1,8 @@
 package com.example.madsnorby.enjoy.adapters;
 
 import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -75,14 +77,25 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
                     Webshop.getInstance().addItemToBasket(1, productSpecificationID);
 
                     String addMessage = ProductAdapter.this.products.get(position).getName() + " has been added to your basket";
+                    backgroundToast(context, addMessage);
 
-                    Toast.makeText(context, addMessage, Toast.LENGTH_LONG).show();
                 }
+
             });
 
 
         }
 
+        public void backgroundToast(final Context context,final String msg) {
+            if (context != null && msg != null) {
+                new Handler(Looper.getMainLooper()).post(new Runnable() {
 
+                    @Override
+                    public void run() {
+                        Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        }
     }
 }

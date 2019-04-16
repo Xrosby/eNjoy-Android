@@ -3,18 +3,20 @@ package shopping;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Iterator;
 
 import domain.ProductSpecification;
 
 public class ShoppingCart {
 
-    private ArrayList<Item> items;
+    private HashMap<Integer, Item> items;
     private Date dateRaised;
 
     public ShoppingCart() {
-        this.items = new ArrayList<>();
+        this.items = new HashMap<>();
 
     }
 
@@ -22,19 +24,17 @@ public class ShoppingCart {
 
         if (items.size() == 0) {
             Item newItem = new Item(productSpecification, 1);
-            this.items.add(newItem);
+            this.items.put(productSpecification.getProductID(), newItem);
         } else {
-            for (Iterator<Item> iterator = items.iterator(); iterator.hasNext(); ) {
-                Item item = iterator.next();
-                if (item.getProductSpecification().getProductID() == productSpecification.getProductID()) {
-                    item.addAmount(1);
-                } else {
-                    Item newItem = new Item(productSpecification, 1);
-                    this.items.add(newItem);
-                }
+            if (items.containsKey(productSpecification.getProductID())) {
+                this.items.get(productSpecification.getProductID()).addAmount(1);
+            } else {
+                Item newItem = new Item(productSpecification, 1);
+                this.items.put(productSpecification.getProductID(), newItem);
             }
         }
     }
+
 
     public double calculateTotalPrice() {
         return -1;
@@ -47,6 +47,8 @@ public class ShoppingCart {
 
 
     public ArrayList<Item> getItems() {
-        return this.items;
+        ArrayList<Item> items = new ArrayList<>();
+        items.addAll(this.items.values());
+        return items;
     }
 }
