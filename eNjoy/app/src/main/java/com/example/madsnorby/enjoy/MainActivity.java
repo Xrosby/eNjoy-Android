@@ -1,14 +1,8 @@
 package com.example.madsnorby.enjoy;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
-import android.view.MenuItem;
 import android.widget.ListView;
-import android.widget.TextView;
-
-import com.example.madsnorby.enjoy.adapters.ProductAdapter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,8 +22,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        this.initPlaceholderProducts();
+
         ProductAdapter productAdapter = new ProductAdapter(this, this.products);
         productListView = (ListView) findViewById(R.id.productListView);
+
         productListView.setAdapter(productAdapter);
 
 

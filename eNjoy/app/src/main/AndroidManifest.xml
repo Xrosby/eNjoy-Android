@@ -19,7 +19,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".ShoppingBasketActivity" />
-        <activity android:name=".CatalogActivity"></activity>
     </application>
 
 </manifest>
