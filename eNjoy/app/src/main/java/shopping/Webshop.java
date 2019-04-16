@@ -41,14 +41,8 @@ public class Webshop {
         if(shoppingCarts.get(customerID) == null) {
             shoppingCarts.put(customerID, new ShoppingCart());
         }
-        Log.d("CatalogActivity", "addItemToBasket i Webshop");
-
         ProductSpecification specification = this.catalog.findProductSpecification(productID);
-
-        Log.d("CatalogActivity", this.catalog.findProductSpecification(productID).getName() + " er blevet fundet i kataloget");
-
         this.shoppingCarts.get(customerID).addProduct(specification);
-
     }
 
     public void createOrder(int customerID) {
