@@ -14,7 +14,7 @@ import com.example.madsnorby.enjoy.adapters.ProductAdapter;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import domain.ProductSpecification;
+import domain.product.ProductSpecification;
 
 public class CatalogActivity extends AppCompatActivity {
 

@@ -1,14 +1,10 @@
-package shopping;
-
-import android.util.Log;
+package domain.shopping;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Iterator;
 
-import domain.ProductSpecification;
+import domain.product.ProductSpecification;
 
 public class ShoppingCart {
 

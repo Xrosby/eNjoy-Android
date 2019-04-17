@@ -1,13 +1,10 @@
-package shopping;
-
-import android.util.Log;
+package domain.shopping;
 
 import java.util.HashMap;
-import java.util.HashMap;
 
-import customer.Customer;
-import domain.Catalog;
-import domain.ProductSpecification;
+import domain.customer.Customer;
+import domain.product.Catalog;
+import domain.product.ProductSpecification;
 
 public class Webshop {
 

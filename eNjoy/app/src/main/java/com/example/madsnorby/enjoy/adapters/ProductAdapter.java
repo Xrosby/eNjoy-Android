@@ -16,8 +16,8 @@ import com.example.madsnorby.enjoy.R;
 
 import java.util.ArrayList;
 
-import domain.ProductSpecification;
-import shopping.Webshop;
+import domain.product.ProductSpecification;
+import domain.shopping.Webshop;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHolder> {
 

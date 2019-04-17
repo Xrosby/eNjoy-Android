@@ -1,6 +1,6 @@
-package shopping;
+package domain.shopping;
 
-import domain.ProductSpecification;
+import domain.product.ProductSpecification;
 
 public class Item {
 

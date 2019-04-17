@@ -1,9 +1,9 @@
-package shopping;
+package domain.shopping;
 
 import java.util.ArrayList;
 import java.util.Date;
 
-import customer.Payment;
+import domain.customer.Payment;
 
 public class Order {
 

@@ -10,13 +10,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.madsnorby.enjoy.adapters.CartItemAdapter;
 
-import shopping.Item;
-import shopping.ShoppingCart;
-import shopping.Webshop;
+import domain.shopping.Item;
+import domain.shopping.ShoppingCart;
+import domain.shopping.Webshop;
 
 public class ShoppingBasketActivity extends AppCompatActivity {
 
@@ -35,10 +34,21 @@ public class ShoppingBasketActivity extends AppCompatActivity {
 
     }
 
+    private void goToShoppingCatalog() {
+        Intent intent = new Intent(this, CatalogActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
+
+    private void initShoppingCart() {
+        Webshop webshop = Webshop.getInstance();
+        this.shoppingCart = webshop.getShoppingCart(1);
+    }
+
+
     private void initListeners() {
 
         Button btnGoToCatalog = findViewById(R.id.btnGoToCatalog);
-
         btnGoToCatalog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,19 +84,6 @@ public class ShoppingBasketActivity extends AppCompatActivity {
     }
 
 
-    private void goToShoppingCatalog() {
-        Intent intent = new Intent(this, CatalogActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
-    }
 
-    private void initShoppingCart() {
-        Webshop webshop = Webshop.getInstance();
-        this.shoppingCart = webshop.getShoppingCart(1);
 
-        for(Item item: this.shoppingCart.getItems()) {
-            Log.d("Shoppingcart", item.getProductSpecification().getName() + " Er blevet fundet i indkøbskurven");
-        }
-
-    }
 }
