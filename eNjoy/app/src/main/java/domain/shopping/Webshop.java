@@ -68,9 +68,4 @@ public class Webshop {
         this.customers = new HashMap<>();
         this.customers.put(1, new Customer("Mads", 1));
     }
-
-
-
-
-
 }
