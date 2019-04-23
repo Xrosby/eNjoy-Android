@@ -11,10 +11,12 @@ import android.widget.Button;
 
 import com.example.madsnorby.enjoy.adapters.ProductAdapter;
 
+import java.nio.channels.WritableByteChannel;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import domain.product.ProductSpecification;
+import domain.shopping.Webshop;
 
 public class CatalogActivity extends AppCompatActivity {
 
@@ -66,27 +68,7 @@ public class CatalogActivity extends AppCompatActivity {
 
 
     private void initPlaceholderProducts() {
-        this.products = new ArrayList<>();
-        HashMap<Integer, ProductSpecification> productsMap = new HashMap<>();
-        productsMap.put(1, new ProductSpecification(
-                "iPhone",
-                "Brand spanking new iPhone",
-                100000,
-                10,
-                1));
-        productsMap.put(2, new ProductSpecification(
-                "French press",
-                "Its a french press for coffee",
-                50,
-                3,
-                2));
-        productsMap.put(3, new ProductSpecification(
-                "Elephant",
-                "Its huge and grey and it can be yours",
-                90,
-                88,
-                3));
-        this.products.addAll(productsMap.values());
+        this.products = Webshop.getInstance().getAllProducts();
     }
 
 }

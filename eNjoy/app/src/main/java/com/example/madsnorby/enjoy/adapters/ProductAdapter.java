@@ -74,7 +74,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
                 public void onClick(View v) {
                     int position = getLayoutPosition();
                     int productSpecificationID = ProductAdapter.this.products.get(position).getProductID();
-                    Webshop.getInstance().addItemToBasket(1, productSpecificationID);
+                    int amount = 1;
+                    Webshop.getInstance().addItemToBasket(1, productSpecificationID, amount);
 
                     String addMessage = ProductAdapter.this.products.get(position).getName() + " has been added to your basket";
                     backgroundToast(context, addMessage);

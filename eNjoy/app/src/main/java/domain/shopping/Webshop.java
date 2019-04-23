@@ -1,5 +1,6 @@
 package domain.shopping;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import domain.customer.Customer;
@@ -28,18 +29,22 @@ public class Webshop {
         return instance;
     }
 
+    public ArrayList<ProductSpecification> getAllProducts() {
+        return this.catalog.getAllProducts();
+    }
+
 
     public ShoppingCart getShoppingCart(int customerId) {
         return this.shoppingCarts.get(customerId);
     }
 
 
-    public void addItemToBasket(int customerID, int productID) {
+    public void addItemToBasket(int customerID, int productID, int amount) {
         if(shoppingCarts.get(customerID) == null) {
             shoppingCarts.put(customerID, new ShoppingCart());
         }
         ProductSpecification specification = this.catalog.findProductSpecification(productID);
-        this.shoppingCarts.get(customerID).addProduct(specification);
+        this.shoppingCarts.get(customerID).addProduct(specification, amount);
     }
 
     public void createOrder(int customerID) {

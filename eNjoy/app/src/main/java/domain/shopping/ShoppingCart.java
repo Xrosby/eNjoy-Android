@@ -16,16 +16,16 @@ public class ShoppingCart {
 
     }
 
-    public void addProduct(ProductSpecification productSpecification) {
+    public void addProduct(ProductSpecification productSpecification, int amount) {
 
         if (items.size() == 0) {
-            Item newItem = new Item(productSpecification, 1);
+            Item newItem = new Item(productSpecification, amount);
             this.items.put(productSpecification.getProductID(), newItem);
         } else {
             if (items.containsKey(productSpecification.getProductID())) {
                 this.items.get(productSpecification.getProductID()).addAmount(1);
             } else {
-                Item newItem = new Item(productSpecification, 1);
+                Item newItem = new Item(productSpecification, amount);
                 this.items.put(productSpecification.getProductID(), newItem);
             }
         }
