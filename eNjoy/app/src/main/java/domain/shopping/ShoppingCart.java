@@ -3,6 +3,7 @@ package domain.shopping;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Map;
 
 import domain.product.ProductSpecification;
 
@@ -33,8 +34,11 @@ public class ShoppingCart {
 
 
     public double calculateTotalPrice() {
-        return -1;
-        //TODO: For all items in the basket, add the price of the Item to the total price
+        double totalPrice = 0;
+        for(Item item : items.values()) {
+            totalPrice += item.getPrice();
+        }
+        return totalPrice;
     }
 
     public double calculateVAT() {

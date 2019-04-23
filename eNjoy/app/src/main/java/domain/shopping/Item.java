@@ -17,11 +17,11 @@ public class Item {
     }
 
     public double getPrice() {
-        return productSpecification.getPrice() * amount;
+        return 0;
     }
 
     public void addAmount(int amountIncrease) {
-        this.amount += amountIncrease;
+        this.amount = amountIncrease;
     }
 
     public int getAmount() {
