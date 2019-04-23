@@ -74,12 +74,7 @@ public class ShoppingBasketActivity extends AppCompatActivity {
     private void setTotalPrice() {
         TextView totalPriceTextView = this.findViewById(R.id.totalPrice);
         double totalPriceValue = this.shoppingCart.calculateTotalPrice();
-        String totalPriceString = "";
-        if(totalPriceValue == -1) {
-            totalPriceString = "Needs implementation!";
-        } else {
-            totalPriceString = String.valueOf(totalPriceValue);
-        }
+        String totalPriceString = String.valueOf(totalPriceValue);
         totalPriceTextView.setText(totalPriceString);
     }
 
